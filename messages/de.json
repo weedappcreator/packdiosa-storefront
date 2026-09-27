@@ -41,7 +41,8 @@
     "openSearch": "Suche öffnen",
     "closeSearch": "Suche schließen",
     "myAccount": "Mein Konto",
-    "wholesale": "Großhandel"
+    "wholesale": "Großhandel",
+    "trackOrder": "Bestellung verfolgen"
   },
   "regionPreferences": {
     "title": "Region und Sprache",
@@ -67,7 +68,8 @@
     "policies": "Richtlinien",
     "poweredBy": "Betrieben von",
     "copyright": "© {year} {storeName}. Unterstützt durch Spree Commerce.",
-    "wholesale": "Handel & Großhandel"
+    "wholesale": "Handel & Großhandel",
+    "trackOrder": "Bestellung verfolgen"
   },
   "home": {
     "welcome": "{storeName} Storefront",

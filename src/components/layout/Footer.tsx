@@ -115,6 +115,14 @@ export async function Footer({ basePath, locale, categoryLinks }: FooterProps) {
               </li>
               <li>
                 <Link
+                  href={`${basePath}/track`}
+                  className="text-sm text-[#9ca3af] hover:text-[#c8aa6e] transition-colors duration-200"
+                >
+                  {t("trackOrder")}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href={`${basePath}/cart`}
                   className="text-sm text-[#9ca3af] hover:text-[#c8aa6e] transition-colors duration-200"
                 >

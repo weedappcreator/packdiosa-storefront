@@ -41,7 +41,8 @@
     "openSearch": "Open search",
     "closeSearch": "Close search",
     "myAccount": "My Account",
-    "wholesale": "Wholesale"
+    "wholesale": "Wholesale",
+    "trackOrder": "Track Order"
   },
   "regionPreferences": {
     "title": "Region and language",
@@ -67,7 +68,8 @@
     "policies": "Policies",
     "poweredBy": "Powered by",
     "copyright": "© {year} {storeName}. Powered by Spree Commerce.",
-    "wholesale": "Trade & Wholesale"
+    "wholesale": "Trade & Wholesale",
+    "trackOrder": "Track Order"
   },
   "home": {
     "welcome": "{storeName} Storefront",

@@ -7,6 +7,10 @@ import { PasswordResetEmail } from "@/lib/emails/password-reset";
 import { sendEmail } from "@/lib/emails/send";
 import { ShipmentShippedEmail } from "@/lib/emails/shipment-shipped";
 import { getStoreName, getStoreUrl } from "@/lib/store";
+import {
+  syncOrderToFleetbase,
+  syncShipmentToFleetbase,
+} from "@/lib/webhooks/fleetbase-sync";
 
 const STORE_NAME = getStoreName();
 const SITE_URL = getStoreUrl();
@@ -86,6 +90,11 @@ export async function handleOrderCompleted(event: WebhookEvent<Order>) {
       deliveryMethodName,
     }),
   });
+
+  // Sync to Fleetbase for logistics tracking (fire-and-forget)
+  syncOrderToFleetbase(order).catch((err) =>
+    console.error("[webhook] Fleetbase sync failed for order.completed:", err),
+  );
 
   markProcessed(event.id);
 }
@@ -176,6 +185,11 @@ export async function handleOrderShipped(event: WebhookEvent<Order>) {
       shipments,
     }),
   });
+
+  // Sync shipment tracking to Fleetbase (fire-and-forget)
+  syncShipmentToFleetbase(order).catch((err) =>
+    console.error("[webhook] Fleetbase sync failed for order.shipped:", err),
+  );
 
   markProcessed(event.id);
 }

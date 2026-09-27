@@ -41,7 +41,8 @@
     "openSearch": "Otwórz wyszukiwanie",
     "closeSearch": "Zamknij wyszukiwanie",
     "myAccount": "Moje konto",
-    "wholesale": "Hurt"
+    "wholesale": "Hurt",
+    "trackOrder": "Śledź Zamówienie"
   },
   "regionPreferences": {
     "title": "Region i język",
@@ -67,7 +68,8 @@
     "policies": "Regulaminy",
     "poweredBy": "Zasilany przez",
     "copyright": "© {year} {storeName}. Zasilany przez Spree Commerce.",
-    "wholesale": "Handel i sprzedaż hurtowa"
+    "wholesale": "Handel i sprzedaż hurtowa",
+    "trackOrder": "Śledź Zamówienie"
   },
   "home": {
     "welcome": "{storeName} Storefront",

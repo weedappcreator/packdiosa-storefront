@@ -247,6 +247,13 @@ export function MobileMenu({
               </Link>
               {/* Secondary links — kept out of the category list above. */}
               <div className="mt-2 pt-2 border-t border-[#c8aa6e]/15">
+                <Link
+                  href={`${basePath}/track`}
+                  onClick={() => setOpen(false)}
+                  className={`${linkClass} block`}
+                >
+                  {t("trackOrder")}
+                </Link>
                 {wholesaleEnabled && (
                   <Link
                     href={`${basePath}/wholesale`}

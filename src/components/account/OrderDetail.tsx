@@ -5,8 +5,10 @@ import { getTranslations } from "next-intl/server";
 import { AddressBlock } from "@/components/order/AddressBlock";
 import { FulfillmentBlock } from "@/components/order/FulfillmentBlock";
 import { LineItemCard } from "@/components/order/LineItemCard";
+import { OrderTimeline } from "@/components/order/OrderTimeline";
 import { OrderTotals } from "@/components/order/OrderTotals";
 import { PaymentInfo } from "@/components/order/PaymentInfo";
+import { buildTrackingFromSpree, getTracking } from "@/lib/fleetbase";
 import { formatDateTime } from "@/lib/utils/format";
 
 interface OrderDetailProps {
@@ -77,6 +79,8 @@ export async function OrderDetail({
         </div>
       )}
 
+      {hasFulfillments && <OrderTimelineSection order={order} />}
+
       {order.customer_note && (
         <div className="bg-[#0f1a24] rounded-xl border border-[#c8aa6e]/15 p-6 mb-4">
           <h3 className="text-sm font-semibold text-[#faf9f7] mb-2">
@@ -119,6 +123,20 @@ export async function OrderDetail({
       <div className="bg-[#0f1a24] rounded-xl border border-[#c8aa6e]/15 p-6">
         <OrderTotals order={order} />
       </div>
+    </div>
+  );
+}
+
+async function OrderTimelineSection({ order }: { order: Order }) {
+  // Try Fleetbase first, fall back to Spree fulfillment data
+  let tracking = await getTracking(order.number);
+  if (!tracking) {
+    tracking = buildTrackingFromSpree(order);
+  }
+
+  return (
+    <div className="mb-4">
+      <OrderTimeline tracking={tracking} />
     </div>
   );
 }

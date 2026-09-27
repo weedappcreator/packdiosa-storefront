@@ -87,6 +87,12 @@ export async function Header({
         <div className="hidden lg:flex lg:items-center lg:gap-1">
           {/* Trade portal entry point — understated, secondary to the catalog nav.
               Only shown when the wholesale addon is enabled. */}
+          <Link
+            href={`${basePath}/track`}
+            className="px-2 py-1.5 text-sm text-[#9ca3af] hover:text-[#faf9f7] transition-colors whitespace-nowrap"
+          >
+            {t("trackOrder")}
+          </Link>
           {wholesaleEnabled && (
             <Link
               href={`${basePath}/wholesale`}

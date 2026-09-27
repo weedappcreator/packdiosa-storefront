@@ -41,7 +41,8 @@
     "openSearch": "Ouvrir la recherche",
     "closeSearch": "Fermer la recherche",
     "myAccount": "Mon compte",
-    "wholesale": "Vente en gros"
+    "wholesale": "Vente en gros",
+    "trackOrder": "Suivre la Commande"
   },
   "regionPreferences": {
     "title": "Région et langue",
@@ -67,7 +68,8 @@
     "policies": "Politiques",
     "poweredBy": "Propulse par",
     "copyright": "© {year} {storeName}. Propulse par Spree Commerce.",
-    "wholesale": "Professionnels & vente en gros"
+    "wholesale": "Professionnels & vente en gros",
+    "trackOrder": "Suivre la Commande"
   },
   "home": {
     "welcome": "{storeName} Storefront",
