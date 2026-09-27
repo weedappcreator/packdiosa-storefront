@@ -124,6 +124,8 @@ export function OrderTimeline({ tracking }: OrderTimelineProps) {
     tracking.currentStatus,
     tracking.isHaitiOrder,
   );
+  const isDelivered = tracking.currentStatus === "delivered";
+  const isCanceled = tracking.currentStatus === "canceled";
 
   // Build event lookup by status
   const eventsByStatus = new Map<string, TrackingEvent>();
@@ -137,13 +139,13 @@ export function OrderTimeline({ tracking }: OrderTimelineProps) {
         <h3 className="text-lg font-bold text-[#faf9f7] uppercase tracking-wide">
           Shipment Status
         </h3>
-        {tracking.currentStatus === "delivered" && (
+        {isDelivered && (
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-900/30 text-green-400 border border-green-500/20">
             <Check className="size-3 mr-1" />
             Delivered
           </span>
         )}
-        {tracking.currentStatus === "canceled" && (
+        {isCanceled && (
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-900/30 text-red-400 border border-red-500/20">
             Canceled
           </span>
@@ -152,12 +154,17 @@ export function OrderTimeline({ tracking }: OrderTimelineProps) {
 
       {/* Progress bar (desktop) */}
       <div className="hidden sm:block mb-8">
-        <div className="relative h-1.5 bg-[#c8aa6e]/10 rounded-full overflow-hidden">
+        <div className="relative h-2 bg-[#c8aa6e]/10 rounded-full overflow-hidden">
           <div
-            className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#c8aa6e] to-[#d4ba82] rounded-full transition-all duration-300"
+            className={`absolute inset-y-0 left-0 rounded-full transition-all duration-500 ${
+              isDelivered
+                ? "bg-gradient-to-r from-[#c8aa6e] to-green-500"
+                : "bg-gradient-to-r from-[#c8aa6e] to-[#d4ba82]"
+            }`}
             style={{
-              width:
-                currentIdx >= 0
+              width: isDelivered
+                ? "100%"
+                : currentIdx >= 0
                   ? `${((currentIdx + 1) / pipeline.length) * 100}%`
                   : "0%",
             }}
@@ -168,8 +175,11 @@ export function OrderTimeline({ tracking }: OrderTimelineProps) {
       {/* Timeline */}
       <div>
         {pipeline.map((status, idx) => {
-          const isCompleted = currentIdx >= 0 && idx < currentIdx;
-          const isCurrent = idx === currentIdx;
+          // When delivered, ALL steps are completed (filled gold checkmarks)
+          const isCompleted = isDelivered
+            ? true
+            : currentIdx >= 0 && idx < currentIdx;
+          const isCurrent = isDelivered ? false : idx === currentIdx;
           const isActive = isCompleted || isCurrent;
 
           return (

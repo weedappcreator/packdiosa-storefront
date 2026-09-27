@@ -10,9 +10,11 @@ import {
  * Public tracking lookup API.
  * GET /api/track?q=ORDER_NUMBER_OR_TRACKING
  *
- * Tries Fleetbase first, then falls back to Spree order data.
+ * Tries Google Sheets first, then falls back to Spree order data.
  * No authentication required — customers look up by order number.
  */
+export const dynamic = "force-dynamic"; // never cache this route
+
 export async function GET(request: NextRequest) {
   const query = request.nextUrl.searchParams.get("q")?.trim();
 
@@ -23,10 +25,12 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // 1) Try Fleetbase
+  // 1) Try Google Sheets
   let result: TrackingResult | null = await getTracking(query);
   if (result) {
-    return NextResponse.json(result);
+    return NextResponse.json(result, {
+      headers: { "Cache-Control": "no-store, max-age=0" },
+    });
   }
 
   // 2) Fall back to Spree order lookup

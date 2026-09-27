@@ -1,9 +1,11 @@
 "use client";
 
-import { Loader2, Package, Search } from "lucide-react";
-import { useCallback, useState } from "react";
+import { Loader2, Package, RefreshCw, Search } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { TrackingResult } from "@/lib/tracking";
 import { OrderTimeline } from "./OrderTimeline";
+
+const AUTO_REFRESH_INTERVAL = 30_000; // 30 seconds
 
 export function TrackingLookup() {
   const [query, setQuery] = useState("");
@@ -11,6 +13,69 @@ export function TrackingLookup() {
   const [result, setResult] = useState<TrackingResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [searched, setSearched] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
+  const activeQuery = useRef<string>("");
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Fetch tracking data (used for both initial search and auto-refresh)
+  const fetchTracking = useCallback(
+    async (searchQuery: string, isRefresh = false) => {
+      if (!searchQuery || searchQuery.length < 3) return;
+
+      if (isRefresh) {
+        setRefreshing(true);
+      } else {
+        setLoading(true);
+        setError(null);
+        setResult(null);
+        setSearched(true);
+      }
+
+      try {
+        const res = await fetch(
+          `/api/track?q=${encodeURIComponent(searchQuery)}&_t=${Date.now()}`,
+        );
+        const data = await res.json();
+
+        if (res.ok && data.found) {
+          setResult(data);
+          setLastUpdated(new Date());
+          setError(null);
+        } else if (!isRefresh) {
+          if (res.status === 404) {
+            setError(
+              "Order not found. Please check your order number and try again.",
+            );
+          } else {
+            setError(data.error || "Something went wrong. Please try again.");
+          }
+        }
+      } catch {
+        if (!isRefresh) {
+          setError(
+            "Unable to connect to tracking service. Please try again later.",
+          );
+        }
+      } finally {
+        setLoading(false);
+        setRefreshing(false);
+      }
+    },
+    [],
+  );
+
+  // Auto-refresh every 30s when we have a result
+  useEffect(() => {
+    if (result && activeQuery.current) {
+      intervalRef.current = setInterval(() => {
+        fetchTracking(activeQuery.current, true);
+      }, AUTO_REFRESH_INTERVAL);
+    }
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [result, fetchTracking]);
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
@@ -20,35 +85,18 @@ export function TrackingLookup() {
         setError("Please enter a valid order or tracking number.");
         return;
       }
-
-      setLoading(true);
-      setError(null);
-      setResult(null);
-      setSearched(true);
-
-      try {
-        const res = await fetch(`/api/track?q=${encodeURIComponent(trimmed)}`);
-        const data = await res.json();
-
-        if (res.ok && data.found) {
-          setResult(data);
-        } else if (res.status === 404) {
-          setError(
-            "Order not found. Please check your order number and try again.",
-          );
-        } else {
-          setError(data.error || "Something went wrong. Please try again.");
-        }
-      } catch {
-        setError(
-          "Unable to connect to tracking service. Please try again later.",
-        );
-      } finally {
-        setLoading(false);
-      }
+      activeQuery.current = trimmed;
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      await fetchTracking(trimmed);
     },
-    [query],
+    [query, fetchTracking],
   );
+
+  const handleManualRefresh = useCallback(() => {
+    if (activeQuery.current) {
+      fetchTracking(activeQuery.current, true);
+    }
+  }, [fetchTracking]);
 
   return (
     <div>
@@ -62,7 +110,7 @@ export function TrackingLookup() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Enter order number (e.g. R123456789) or tracking number"
+            placeholder="Enter your order number (e.g. PD-2026-0001)"
             className="w-full h-14 pl-12 pr-32 bg-[#1a2b3c] border border-[#c8aa6e]/15 rounded-xl text-[#faf9f7] placeholder-[#9ca3af]/60 text-sm focus:border-[#c8aa6e] focus:ring-2 focus:ring-[#c8aa6e]/20 focus:outline-none transition-colors"
             autoComplete="off"
             spellCheck={false}
@@ -127,6 +175,27 @@ export function TrackingLookup() {
             </div>
           </div>
 
+          {/* Auto-refresh bar */}
+          <div className="flex items-center justify-between px-1">
+            <p className="text-xs text-[#9ca3af]/60">
+              {lastUpdated && (
+                <>Last updated: {lastUpdated.toLocaleTimeString()}</>
+              )}
+              {" · "}Auto-refreshes every 30s
+            </p>
+            <button
+              type="button"
+              onClick={handleManualRefresh}
+              disabled={refreshing}
+              className="text-xs text-[#c8aa6e]/70 hover:text-[#c8aa6e] inline-flex items-center gap-1 transition-colors disabled:opacity-50"
+            >
+              <RefreshCw
+                className={`size-3 ${refreshing ? "animate-spin" : ""}`}
+              />
+              Refresh
+            </button>
+          </div>
+
           {/* Timeline */}
           <OrderTimeline tracking={result} />
         </div>
@@ -139,7 +208,7 @@ export function TrackingLookup() {
             <Package className="size-7 text-[#c8aa6e]/60" />
           </div>
           <p className="text-sm text-[#9ca3af]">
-            Enter your order number above to get started.
+            Enter your order number above to track your shipment.
           </p>
         </div>
       )}
