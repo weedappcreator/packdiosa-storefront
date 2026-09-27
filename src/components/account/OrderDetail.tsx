@@ -8,7 +8,7 @@ import { LineItemCard } from "@/components/order/LineItemCard";
 import { OrderTimeline } from "@/components/order/OrderTimeline";
 import { OrderTotals } from "@/components/order/OrderTotals";
 import { PaymentInfo } from "@/components/order/PaymentInfo";
-import { buildTrackingFromSpree, getTracking } from "@/lib/fleetbase";
+import { buildTrackingFromSpree, getTracking } from "@/lib/tracking";
 import { formatDateTime } from "@/lib/utils/format";
 
 interface OrderDetailProps {

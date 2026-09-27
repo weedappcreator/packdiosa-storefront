@@ -2,7 +2,7 @@
 
 import { Loader2, Package, Search } from "lucide-react";
 import { useCallback, useState } from "react";
-import type { TrackingResult } from "@/lib/fleetbase";
+import type { TrackingResult } from "@/lib/tracking";
 import { OrderTimeline } from "./OrderTimeline";
 
 export function TrackingLookup() {

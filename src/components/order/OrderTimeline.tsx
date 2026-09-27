@@ -1,20 +1,24 @@
 "use client";
 
 import {
+  Anchor,
   Check,
+  ClipboardList,
   Clock,
+  FileSearch,
   MapPin,
   Package,
   Plane,
+  Receipt,
   ShieldCheck,
   Truck,
 } from "lucide-react";
-import type { TrackingEvent, TrackingResult } from "@/lib/fleetbase";
+import type { TrackingEvent, TrackingResult } from "@/lib/tracking";
 import {
   getStatusIndex,
   getStatusLabel,
   getStatusPipeline,
-} from "@/lib/fleetbase";
+} from "@/lib/tracking";
 import { formatDateTime } from "@/lib/utils/format";
 
 interface OrderTimelineProps {
@@ -28,6 +32,11 @@ const STATUS_ICONS: Record<string, React.ReactNode> = {
   picked_up: <Package className="size-4" />,
   in_transit: <Truck className="size-4" />,
   in_transit_to_haiti: <Plane className="size-4" />,
+  arrived_at_port: <Anchor className="size-4" />,
+  douane_declaration: <ClipboardList className="size-4" />,
+  douane_verification: <FileSearch className="size-4" />,
+  douane_liquidation: <Receipt className="size-4" />,
+  douane_cleared: <ShieldCheck className="size-4" />,
   customs_clearance: <ShieldCheck className="size-4" />,
   out_for_delivery: <Truck className="size-4" />,
   delivered: <Check className="size-4" />,

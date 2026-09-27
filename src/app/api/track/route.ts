@@ -1,10 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { getClient } from "@/lib/spree";
 import {
   buildTrackingFromSpree,
   getTracking,
   type TrackingResult,
-} from "@/lib/fleetbase";
-import { getClient } from "@/lib/spree";
+} from "@/lib/tracking";
 
 /**
  * Public tracking lookup API.
