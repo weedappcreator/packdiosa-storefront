@@ -21,7 +21,7 @@ export async function CategoryBanner({
   return (
     <>
       <div
-        className="flex flex-col justify-end min-h-[350px] bg-gray-50 bg-cover bg-center"
+        className="flex flex-col justify-end min-h-[350px] bg-[#0f1a24] bg-cover bg-center"
         style={
           category.image_url
             ? { backgroundImage: `url(${category.image_url})` }
@@ -36,14 +36,14 @@ export async function CategoryBanner({
           />
 
           <div className="mb-4">
-            <h1 className="text-4xl font-bold text-gray-900">
+            <h1 className="text-4xl font-bold text-[#faf9f7]">
               {category.name}
             </h1>
           </div>
 
           {/* Description */}
           {category.description && (
-            <p className="mb-4 text-gray-600">{category.description}</p>
+            <p className="mb-4 text-[#9ca3af]">{category.description}</p>
           )}
         </div>
       </div>
@@ -51,12 +51,12 @@ export async function CategoryBanner({
       {/* Subcategories */}
       {category.children && category.children.length > 0 && (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-4">
-          <div className="flex flex-wrap gap-2 items-center border-b border-gray-100 pb-4">
+          <div className="flex flex-wrap gap-2 items-center border-b border-[#c8aa6e]/10 pb-4">
             {category.children.map((child) => (
               <Link
                 key={child.id}
                 href={`${basePath}/c/${child.permalink}`}
-                className="px-1.5 py-1 hover:bg-gray-100 rounded-lg text-gray-700 transition-colors"
+                className="px-1.5 py-1 hover:bg-[#1a2b3c] rounded-lg text-[#e0d5c4] transition-colors"
               >
                 {child.name}
               </Link>

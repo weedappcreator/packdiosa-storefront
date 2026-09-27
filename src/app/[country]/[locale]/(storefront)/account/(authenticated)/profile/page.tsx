@@ -70,9 +70,9 @@ function ProfileForm({
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">{t("profile")}</h1>
+      <h1 className="text-2xl font-bold text-[#faf9f7] mb-6">{t("profile")}</h1>
 
-      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+      <div className="bg-[#0f1a24] rounded-xl border border-[#c8aa6e]/15 overflow-hidden">
         <form onSubmit={handleSubmit}>
           <div className="p-6 space-y-6">
             {error && (
@@ -166,7 +166,7 @@ function ProfileForm({
                 <p
                   id="current_password_help"
                   className={`text-sm ${
-                    passwordError ? "text-red-600" : "text-gray-500"
+                    passwordError ? "text-red-600" : "text-[#9ca3af]"
                   }`}
                 >
                   {passwordError || t("currentPasswordHelp")}
@@ -175,7 +175,7 @@ function ProfileForm({
             )}
           </div>
 
-          <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end">
+          <div className="px-6 py-4 bg-[#0f1a24] border-t border-[#c8aa6e]/15 flex justify-end">
             <Button type="submit" disabled={saving}>
               {saving ? t("saving") : t("saveChanges")}
             </Button>
@@ -184,25 +184,25 @@ function ProfileForm({
       </div>
 
       {/* Account Info */}
-      <div className="mt-8 bg-white rounded-xl border border-gray-200 overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-200">
-          <h2 className="text-lg font-medium text-gray-900">
+      <div className="mt-8 bg-[#0f1a24] rounded-xl border border-[#c8aa6e]/15 overflow-hidden">
+        <div className="px-6 py-4 border-b border-[#c8aa6e]/15">
+          <h2 className="text-lg font-medium text-[#faf9f7]">
             {t("accountInformation")}
           </h2>
         </div>
         <div className="p-6">
           <dl className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <dt className="text-sm font-medium text-gray-500">
+              <dt className="text-sm font-medium text-[#9ca3af]">
                 {t("accountId")}
               </dt>
-              <dd className="mt-1 text-sm text-gray-900">{user.id}</dd>
+              <dd className="mt-1 text-sm text-[#faf9f7]">{user.id}</dd>
             </div>
             <div>
-              <dt className="text-sm font-medium text-gray-500">
+              <dt className="text-sm font-medium text-[#9ca3af]">
                 {t("email")}
               </dt>
-              <dd className="mt-1 text-sm text-gray-900">{user.email}</dd>
+              <dd className="mt-1 text-sm text-[#faf9f7]">{user.email}</dd>
             </div>
           </dl>
         </div>
@@ -219,7 +219,7 @@ export default function ProfilePage() {
   if (!user) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-500">{t("loadingProfile")}</p>
+        <p className="text-[#9ca3af]">{t("loadingProfile")}</p>
       </div>
     );
   }

@@ -20,7 +20,7 @@ interface ProductCarouselProps {
 }
 
 const NAV_BUTTON_BASE =
-  "absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center cursor-pointer rounded-lg bg-white border border-gray-300 text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors";
+  "absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center cursor-pointer rounded-lg bg-[#0f1a24] border border-[#c8aa6e]/20 text-[#9ca3af] hover:bg-[#1a2b3c] hover:text-[#faf9f7] transition-colors";
 
 export function ProductCarousel({
   products,
@@ -49,7 +49,7 @@ export function ProductCarousel({
   if (products.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-500">{t("noProductsFound")}</p>
+        <p className="text-[#9ca3af]">{t("noProductsFound")}</p>
       </div>
     );
   }

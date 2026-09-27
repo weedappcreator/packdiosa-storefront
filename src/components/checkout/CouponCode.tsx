@@ -102,13 +102,13 @@ export function CouponCode({
           {couponPromotions.map((promotion) => (
             <div
               key={promotion.id}
-              className="flex items-center justify-between rounded-sm border border-gray-200 bg-gray-50 px-3 py-2"
+              className="flex items-center justify-between rounded-sm border border-[#c8aa6e]/15 bg-[#0f1a24] px-3 py-2"
             >
               <div className="flex items-center gap-2 text-sm">
-                <span className="font-medium text-gray-900">
+                <span className="font-medium text-[#faf9f7]">
                   {promotion.code || promotion.name}
                 </span>
-                <span className="text-gray-500">
+                <span className="text-[#9ca3af]">
                   {promotion.display_amount}
                 </span>
               </div>
@@ -119,7 +119,7 @@ export function CouponCode({
                   aria-label={t("removeCoupon", {
                     code: promotion.code || promotion.name,
                   })}
-                  className="text-gray-400 hover:text-gray-600 cursor-pointer p-0.5"
+                  className="text-[#9ca3af] hover:text-[#9ca3af] cursor-pointer p-0.5"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
@@ -132,12 +132,12 @@ export function CouponCode({
       {/* Applied gift card */}
       {appliedGiftCard && (
         <div className="space-y-2 mb-3">
-          <div className="flex items-center justify-between rounded-sm border border-gray-200 bg-gray-50 px-3 py-2">
+          <div className="flex items-center justify-between rounded-sm border border-[#c8aa6e]/15 bg-[#0f1a24] px-3 py-2">
             <div className="flex items-center gap-2 text-sm">
-              <span className="font-medium text-gray-900">
+              <span className="font-medium text-[#faf9f7]">
                 {t("giftCardCode", { code: appliedGiftCard.code })}
               </span>
-              <span className="text-gray-500">
+              <span className="text-[#9ca3af]">
                 -{cart.display_gift_card_total}
               </span>
             </div>
@@ -145,7 +145,7 @@ export function CouponCode({
               onClick={handleRemoveGiftCard}
               disabled={removing === appliedGiftCard.id}
               aria-label={t("removeGiftCard")}
-              className="text-gray-400 hover:text-gray-600 cursor-pointer p-0.5"
+              className="text-[#9ca3af] hover:text-[#9ca3af] cursor-pointer p-0.5"
             >
               <X className="h-3.5 w-3.5" />
             </button>

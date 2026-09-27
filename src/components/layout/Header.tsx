@@ -1,7 +1,6 @@
 import type { Category } from "@spree/sdk";
 import { User } from "lucide-react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
@@ -72,17 +71,19 @@ export async function Header({
       basePath={basePath}
       left={mobileNavigation}
       center={
-        <Link href={basePath || "/"} className="flex items-center min-w-0">
-          <Image
-            src="/spree.png"
-            alt={storeName}
-            width={90}
-            height={32}
-            className="max-w-full object-contain"
-            style={{ width: "auto", height: "auto" }}
-            fetchPriority="high"
-            loading="eager"
-          />
+        <Link
+          href={basePath || "/"}
+          className="flex items-center min-w-0 gap-2"
+        >
+          <span
+            className="text-xl font-extrabold tracking-[0.08em] text-[#faf9f7] uppercase"
+            style={{ fontFamily: "var(--font-barlow), system-ui, sans-serif" }}
+          >
+            PACK-DIOSA
+          </span>
+          <span className="text-[10px] font-semibold tracking-[0.15em] text-[#c8aa6e] uppercase mt-0.5">
+            LLC
+          </span>
         </Link>
       }
       rightStart={
@@ -92,7 +93,7 @@ export async function Header({
           {wholesaleEnabled && (
             <Link
               href={`${basePath}/wholesale`}
-              className="px-2 py-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors whitespace-nowrap"
+              className="px-2 py-1.5 text-sm text-[#9ca3af] hover:text-[#faf9f7] transition-colors whitespace-nowrap"
             >
               {t("wholesale")}
             </Link>

@@ -30,16 +30,16 @@ export async function OrderDetail({
     <div>
       <Link
         href={`${basePath}/account/orders`}
-        className="text-sm text-gray-500 hover:text-gray-700 mb-4 inline-flex items-center gap-1"
+        className="text-sm text-[#9ca3af] hover:text-[#e0d5c4] mb-4 inline-flex items-center gap-1"
       >
         <ChevronLeft className="w-4 h-4" />
         {t("backToOrders")}
       </Link>
 
-      <h1 className="text-2xl font-bold text-gray-900">
+      <h1 className="text-2xl font-bold text-[#faf9f7]">
         {t("orderTitle", { number: order.number })}
       </h1>
-      <p className="text-sm text-gray-500 mt-1 mb-6">
+      <p className="text-sm text-[#9ca3af] mt-1 mb-6">
         {t("placedOn", { date: formatDateTime(order.completed_at, locale) })}
       </p>
 
@@ -66,7 +66,7 @@ export async function OrderDetail({
           );
         })
       ) : (
-        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden mb-4">
+        <div className="bg-[#0f1a24] rounded-xl border border-[#c8aa6e]/15 overflow-hidden mb-4">
           <div className="divide-y divide-gray-200">
             {order.items?.map((item) => (
               <div key={item.id} className="px-6 py-4">
@@ -78,19 +78,19 @@ export async function OrderDetail({
       )}
 
       {order.customer_note && (
-        <div className="bg-white rounded-xl border border-gray-200 p-6 mb-4">
-          <h3 className="text-sm font-semibold text-gray-900 mb-2">
+        <div className="bg-[#0f1a24] rounded-xl border border-[#c8aa6e]/15 p-6 mb-4">
+          <h3 className="text-sm font-semibold text-[#faf9f7] mb-2">
             {t("specialInstructions")}
           </h3>
-          <p className="text-sm text-gray-900">{order.customer_note}</p>
+          <p className="text-sm text-[#faf9f7]">{order.customer_note}</p>
         </div>
       )}
 
-      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden mb-4">
+      <div className="bg-[#0f1a24] rounded-xl border border-[#c8aa6e]/15 overflow-hidden mb-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
           {order.billing_address && (
             <div className="px-6 py-4">
-              <h3 className="text-sm font-semibold text-gray-900 mb-2">
+              <h3 className="text-sm font-semibold text-[#faf9f7] mb-2">
                 {t("billingAddress")}
               </h3>
               <AddressBlock address={order.billing_address} />
@@ -98,7 +98,7 @@ export async function OrderDetail({
           )}
           {order.payments && order.payments.length > 0 && (
             <div className="px-6 py-4">
-              <h3 className="text-sm font-semibold text-gray-900 mb-2">
+              <h3 className="text-sm font-semibold text-[#faf9f7] mb-2">
                 {t("paymentInformation")}
               </h3>
               {order.payments
@@ -106,7 +106,7 @@ export async function OrderDetail({
                 .map((payment) => (
                   <div key={payment.id} className="mb-3 last:mb-0">
                     <PaymentInfo payment={payment} />
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-[#9ca3af] mt-1">
                       {payment.display_amount}
                     </p>
                   </div>
@@ -116,7 +116,7 @@ export async function OrderDetail({
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
+      <div className="bg-[#0f1a24] rounded-xl border border-[#c8aa6e]/15 p-6">
         <OrderTotals order={order} />
       </div>
     </div>

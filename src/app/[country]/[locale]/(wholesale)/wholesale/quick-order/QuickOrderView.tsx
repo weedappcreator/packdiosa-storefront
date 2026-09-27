@@ -148,7 +148,7 @@ export function QuickOrderView() {
         <p className="mt-2 text-slate-500">{t("quickOrder.subtitle")}</p>
       </div>
 
-      <div className="rounded-xl border border-slate-200 bg-white">
+      <div className="rounded-xl border border-slate-200 bg-[#0f1a24]">
         <div className="grid grid-cols-[1fr_7rem_auto] gap-3 border-b border-slate-200 px-4 py-3 text-xs font-medium uppercase tracking-wide text-slate-500">
           <span>{t("quickOrder.skuHeader")}</span>
           <span>{t("quickOrder.qtyHeader")}</span>

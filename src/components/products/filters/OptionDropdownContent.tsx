@@ -27,7 +27,7 @@ export function OptionDropdownContent({
           >
             {isColorFilter && (
               <span
-                className="w-4 h-4 rounded-sm border border-gray-200 shrink-0 overflow-hidden"
+                className="w-4 h-4 rounded-sm border border-[#c8aa6e]/15 shrink-0 overflow-hidden"
                 style={
                   option.image_url
                     ? {

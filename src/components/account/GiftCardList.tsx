@@ -8,18 +8,18 @@ import { Button } from "@/components/ui/button";
 import { formatDate } from "@/lib/utils/format";
 
 function getStateColor(state: string, expired: boolean): string {
-  if (expired) return "bg-gray-100 text-gray-800";
+  if (expired) return "bg-[#1a2b3c] text-[#faf9f7]";
   switch (state) {
     case "active":
       return "bg-green-100 text-green-800";
     case "partially_redeemed":
       return "bg-yellow-100 text-yellow-800";
     case "redeemed":
-      return "bg-gray-100 text-gray-800";
+      return "bg-[#1a2b3c] text-[#faf9f7]";
     case "canceled":
       return "bg-red-100 text-red-800";
     default:
-      return "bg-gray-100 text-gray-800";
+      return "bg-[#1a2b3c] text-[#faf9f7]";
   }
 }
 
@@ -98,11 +98,11 @@ function GiftCardItem({ card }: { card: GiftCard }) {
       : 0;
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-6">
+    <div className="bg-[#0f1a24] rounded-xl border border-[#c8aa6e]/15 p-6">
       <div className="flex justify-between items-start mb-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="font-mono text-lg font-semibold text-gray-900">
+            <span className="font-mono text-lg font-semibold text-[#faf9f7]">
               {card.code}
             </span>
             <CopyButton code={card.code} />
@@ -112,7 +112,7 @@ function GiftCardItem({ card }: { card: GiftCard }) {
               {getStateLabel(card.status, t)}
             </span>
           </div>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-[#9ca3af] mt-1">
             {card.expires_at
               ? t("expiresOn", {
                   date: formatDate(card.expires_at, "-", locale),
@@ -121,24 +121,24 @@ function GiftCardItem({ card }: { card: GiftCard }) {
           </p>
         </div>
         <div className="text-right">
-          <p className="text-2xl font-bold text-gray-900">
+          <p className="text-2xl font-bold text-[#faf9f7]">
             {card.display_amount_remaining}
           </p>
-          <p className="text-sm text-gray-500">{t("remaining")}</p>
+          <p className="text-sm text-[#9ca3af]">{t("remaining")}</p>
         </div>
       </div>
 
       {/* Progress bar showing usage */}
       <div className="mb-4">
         <div className="flex justify-between text-sm mb-1">
-          <span className="text-gray-600">
+          <span className="text-[#9ca3af]">
             {t("usedAmount", { amount: card.display_amount_used ?? "" })}
           </span>
-          <span className="text-gray-600">
+          <span className="text-[#9ca3af]">
             {t("totalAmountWithValue", { amount: card.display_amount ?? "" })}
           </span>
         </div>
-        <div className="w-full bg-gray-200 rounded-lg h-2">
+        <div className="w-full bg-[#1a2b3c] rounded-lg h-2">
           <div
             className={`h-2 rounded-lg transition-all ${
               usagePercentage >= 100 ? "bg-gray-400" : "bg-primary"
@@ -146,15 +146,15 @@ function GiftCardItem({ card }: { card: GiftCard }) {
             style={{ width: `${Math.min(usagePercentage, 100)}%` }}
           />
         </div>
-        <p className="text-xs text-gray-500 mt-1">
+        <p className="text-xs text-[#9ca3af] mt-1">
           {t("percentUsed", { percent: usagePercentage })}
         </p>
       </div>
 
       {/* Additional info */}
       {card.redeemed_at && (
-        <div className="pt-4 border-t border-gray-100">
-          <p className="text-sm text-gray-500">
+        <div className="pt-4 border-t border-[#c8aa6e]/10">
+          <p className="text-sm text-[#9ca3af]">
             {t("fullyRedeemedOnDate", {
               date: formatDate(card.redeemed_at, "-", locale),
             })}
@@ -179,7 +179,7 @@ export function GiftCardList({ cards }: GiftCardListProps) {
       {/* Active Cards */}
       {activeCards.length > 0 && (
         <div className="mb-8">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-lg font-semibold text-[#faf9f7] mb-4">
             {t("activeGiftCardsCount", { count: activeCards.length })}
           </h2>
           <div className="space-y-4">
@@ -193,7 +193,7 @@ export function GiftCardList({ cards }: GiftCardListProps) {
       {/* Inactive Cards */}
       {inactiveCards.length > 0 && (
         <div>
-          <h2 className="text-lg font-semibold text-gray-500 mb-4">
+          <h2 className="text-lg font-semibold text-[#9ca3af] mb-4">
             {t("expiredRedeemedCount", { count: inactiveCards.length })}
           </h2>
           <div className="space-y-4 opacity-75">

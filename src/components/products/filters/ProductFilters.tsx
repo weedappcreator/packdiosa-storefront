@@ -151,7 +151,7 @@ export const FilterBar = memo(function FilterBar({
 
   return (
     <div className="mb-6">
-      <div className="hidden md:flex items-center justify-between pb-4 border-b border-gray-100">
+      <div className="hidden md:flex items-center justify-between pb-4 border-b border-[#c8aa6e]/10">
         <div className="flex items-center gap-3">
           {optionFilters.map((filter) => (
             <FilterDropdown
@@ -204,7 +204,7 @@ export const FilterBar = memo(function FilterBar({
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-[#9ca3af]">
             {t("productCount", { count: totalCount })}
           </span>
           <FilterDropdown
@@ -223,14 +223,14 @@ export const FilterBar = memo(function FilterBar({
         </div>
       </div>
 
-      <div className="flex items-center gap-3 md:hidden pb-4 border-b border-gray-100">
+      <div className="flex items-center gap-3 md:hidden pb-4 border-b border-[#c8aa6e]/10">
         <button
           type="button"
           onClick={() => setShowMobileDrawer(true)}
           className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-colors ${
             hasActiveFilters
-              ? "border-gray-500 bg-gray-50 text-primary"
-              : "border-gray-300 text-gray-700"
+              ? "border-gray-500 bg-[#0f1a24] text-primary"
+              : "border-[#c8aa6e]/20 text-[#e0d5c4]"
           }`}
         >
           <SlidersHorizontal className="w-4 h-4" />

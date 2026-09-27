@@ -132,7 +132,7 @@ export function MediaLightbox({
       <button
         ref={closeButtonRef}
         type="button"
-        className="absolute top-4 right-4 z-10 text-white p-3 hover:bg-white/10 rounded-lg transition-colors"
+        className="absolute top-4 right-4 z-10 text-white p-3 hover:bg-[#0f1a24]/10 rounded-lg transition-colors"
         onClick={(e) => {
           e.stopPropagation();
           onClose();
@@ -146,7 +146,7 @@ export function MediaLightbox({
         <>
           <button
             type="button"
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-white p-3 hover:bg-white/10 rounded-lg transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-white p-3 hover:bg-[#0f1a24]/10 rounded-lg transition-colors"
             onClick={(e) => {
               e.stopPropagation();
               goPrev();
@@ -157,7 +157,7 @@ export function MediaLightbox({
           </button>
           <button
             type="button"
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white p-3 hover:bg-white/10 rounded-lg transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white p-3 hover:bg-[#0f1a24]/10 rounded-lg transition-colors"
             onClick={(e) => {
               e.stopPropagation();
               goNext();

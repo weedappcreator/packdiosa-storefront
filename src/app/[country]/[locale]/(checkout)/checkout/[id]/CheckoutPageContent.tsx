@@ -610,12 +610,12 @@ function CheckoutPageContentInner({
   if (loading || (!initialData && authLoading)) {
     return (
       <div className="animate-pulse space-y-6">
-        <div className="h-8 bg-gray-200 rounded w-1/3" />
-        <div className="h-4 bg-gray-200 rounded w-1/4" />
+        <div className="h-8 bg-[#1a2b3c] rounded w-1/3" />
+        <div className="h-4 bg-[#1a2b3c] rounded w-1/4" />
         <div className="space-y-4 mt-8">
-          <div className="h-12 bg-gray-200 rounded" />
-          <div className="h-12 bg-gray-200 rounded" />
-          <div className="h-12 bg-gray-200 rounded" />
+          <div className="h-12 bg-[#1a2b3c] rounded" />
+          <div className="h-12 bg-[#1a2b3c] rounded" />
+          <div className="h-12 bg-[#1a2b3c] rounded" />
         </div>
       </div>
     );
@@ -625,10 +625,10 @@ function CheckoutPageContentInner({
   if (error && !cart) {
     return (
       <div className="text-center py-12">
-        <h1 className="text-2xl font-bold text-gray-900 mb-4">
+        <h1 className="text-2xl font-bold text-[#faf9f7] mb-4">
           {t("checkoutError")}
         </h1>
-        <p className="text-gray-600 mb-6">{error}</p>
+        <p className="text-[#9ca3af] mb-6">{error}</p>
         <Link
           href={`${basePath}/cart`}
           className="inline-flex items-center px-4 py-2 bg-primary text-white rounded-xl hover:bg-primary-700"
@@ -645,10 +645,10 @@ function CheckoutPageContentInner({
   if (!cart.items || cart.items.length === 0) {
     return (
       <div className="text-center py-12">
-        <h1 className="text-2xl font-bold text-gray-900 mb-4">
+        <h1 className="text-2xl font-bold text-[#faf9f7] mb-4">
           {t("emptyCart")}
         </h1>
-        <p className="text-gray-600 mb-6">{t("emptyCartDescription")}</p>
+        <p className="text-[#9ca3af] mb-6">{t("emptyCartDescription")}</p>
         <Link
           href={`${basePath}/products`}
           className="inline-flex items-center px-4 py-2 bg-primary text-white rounded-xl hover:bg-primary-700"
@@ -673,7 +673,7 @@ function CheckoutPageContentInner({
       {!isAuthenticated && parseFloat(cart.total ?? "0") > 0 && (
         <div className={expressAvailable ? "mb-4" : ""}>
           {expressAvailable && (
-            <h2 className="text-lg font-bold text-gray-900 mb-3">
+            <h2 className="text-lg font-bold text-[#faf9f7] mb-3">
               Express checkout
             </h2>
           )}

@@ -152,7 +152,7 @@ export function SkuCombobox({
 
       {showDropdown && (
         <div
-          className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-lg"
+          className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-lg border border-slate-200 bg-[#0f1a24] shadow-lg"
           onMouseDown={() => {
             if (blurTimeoutRef.current) clearTimeout(blurTimeoutRef.current);
           }}

@@ -42,16 +42,16 @@ export default async function AddressesPage({ params }: AddressesPageProps) {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">{t("addresses")}</h1>
+        <h1 className="text-2xl font-bold text-[#faf9f7]">{t("addresses")}</h1>
       </div>
 
       {addresses.length === 0 ? (
-        <div className="bg-white rounded-xl border border-gray-200 p-12 text-center">
-          <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900 mb-2">
+        <div className="bg-[#0f1a24] rounded-xl border border-[#c8aa6e]/15 p-12 text-center">
+          <MapPin className="w-12 h-12 text-[#9ca3af] mx-auto mb-4" />
+          <h3 className="text-lg font-medium text-[#faf9f7] mb-2">
             {t("noAddresses")}
           </h3>
-          <p className="text-gray-500 mb-6">{t("noAddressesDescription")}</p>
+          <p className="text-[#9ca3af] mb-6">{t("noAddressesDescription")}</p>
           <AddressManagement
             initialAddresses={addresses}
             countries={countries}

@@ -41,23 +41,23 @@ export async function WholesaleSection({
   ];
 
   return (
-    <section className="bg-slate-900 text-slate-100">
+    <section className="bg-[#1a2b3c] text-[#faf9f7]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           {/* Pitch + CTAs */}
           <div>
-            <span className="inline-flex items-center rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-300">
+            <span className="inline-flex items-center rounded-full bg-[#c8aa6e]/10 border border-[#c8aa6e]/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#c8aa6e]">
               {t("wholesaleBadge")}
             </span>
-            <h2 className="mt-4 text-2xl font-bold text-white">
+            <h2 className="mt-4 text-2xl font-bold text-[#faf9f7]">
               {t("wholesaleTitle")}
             </h2>
-            <p className="mt-4 text-slate-300">{t("wholesaleDescription")}</p>
+            <p className="mt-4 text-[#9ca3af]">{t("wholesaleDescription")}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button
                 size="lg"
                 asChild
-                className="bg-white text-slate-900 hover:bg-slate-200"
+                className="bg-[#c8aa6e] text-[#0f1a24] hover:bg-[#d4ba82] font-bold tracking-wide uppercase text-sm"
               >
                 <Link href={`${basePath}/wholesale`}>
                   {t("wholesaleCtaPrimary")}
@@ -67,7 +67,7 @@ export async function WholesaleSection({
                 variant="outline"
                 size="lg"
                 asChild
-                className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800 hover:text-white"
+                className="border-[#c8aa6e]/30 bg-transparent text-[#c8aa6e] hover:bg-[#c8aa6e]/10"
               >
                 <Link href={`${basePath}/wholesale/apply`}>
                   {t("wholesaleCtaSecondary")}
@@ -76,15 +76,17 @@ export async function WholesaleSection({
             </div>
           </div>
 
-          {/* What approved buyers get — two-up on tablets so it doesn't look sparse */}
+          {/* What approved buyers get */}
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
             {benefits.map((benefit) => (
               <li
                 key={benefit.title}
-                className="rounded-lg border border-slate-800 bg-slate-800/40 px-5 py-4"
+                className="rounded-lg border border-[#c8aa6e]/15 bg-[#0f1a24]/60 px-5 py-4"
               >
-                <h3 className="font-semibold text-white">{benefit.title}</h3>
-                <p className="mt-1 text-sm text-slate-300">
+                <h3 className="font-semibold text-[#faf9f7]">
+                  {benefit.title}
+                </h3>
+                <p className="mt-1 text-sm text-[#9ca3af]">
                   {benefit.description}
                 </p>
               </li>

@@ -26,7 +26,7 @@ export function ProductGrid({
   if (products.length === 0 && emptyMessage) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-500">{emptyMessage}</p>
+        <p className="text-[#9ca3af]">{emptyMessage}</p>
       </div>
     );
   }

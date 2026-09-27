@@ -81,7 +81,7 @@ export function WholesaleCartView() {
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          <div className="divide-y rounded-xl border border-slate-200 bg-white">
+          <div className="divide-y rounded-xl border border-slate-200 bg-[#0f1a24]">
             {cart.items.map((item) => (
               <div key={item.id} className="flex gap-6 p-6">
                 <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
@@ -143,7 +143,7 @@ export function WholesaleCartView() {
         </div>
 
         <div className="lg:col-span-1">
-          <div className="sticky top-24 rounded-xl border border-slate-200 bg-white p-6">
+          <div className="sticky top-24 rounded-xl border border-slate-200 bg-[#0f1a24] p-6">
             <h2 className="text-lg font-medium text-slate-900">
               {tc("orderSummary")}
             </h2>

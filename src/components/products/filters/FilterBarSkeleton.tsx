@@ -5,11 +5,11 @@
  */
 export function FilterBarSkeleton() {
   return (
-    <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-200">
-      <div className="h-9 w-20 bg-gray-200 rounded-lg animate-pulse" />
-      <div className="h-9 w-16 bg-gray-200 rounded-lg animate-pulse" />
-      <div className="h-9 w-24 bg-gray-200 rounded-lg animate-pulse" />
-      <div className="ml-auto h-9 w-16 bg-gray-200 rounded-lg animate-pulse" />
+    <div className="flex items-center gap-3 mb-4 pb-4 border-b border-[#c8aa6e]/15">
+      <div className="h-9 w-20 bg-[#1a2b3c] rounded-lg animate-pulse" />
+      <div className="h-9 w-16 bg-[#1a2b3c] rounded-lg animate-pulse" />
+      <div className="h-9 w-24 bg-[#1a2b3c] rounded-lg animate-pulse" />
+      <div className="ml-auto h-9 w-16 bg-[#1a2b3c] rounded-lg animate-pulse" />
     </div>
   );
 }

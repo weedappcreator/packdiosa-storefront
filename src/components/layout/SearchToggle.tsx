@@ -14,7 +14,7 @@ const SearchBar = dynamic(
     })),
   {
     loading: () => (
-      <div className="h-10 w-full bg-gray-100 rounded-md animate-pulse" />
+      <div className="h-10 w-full bg-[#1a2b3c] rounded-md animate-pulse" />
     ),
   },
 );
@@ -48,7 +48,7 @@ export function SearchToggle({
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 h-16 relative">
+    <header className="sticky top-0 z-50 bg-[#0f1a24] border-b border-[#c8aa6e]/15 h-16 relative">
       {/* Normal header content */}
       <div
         className={`absolute inset-0 transition-all duration-300 ease-in-out ${

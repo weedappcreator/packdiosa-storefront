@@ -27,10 +27,10 @@ export default async function OrderDetailPage({
   if (!order || order.completed_at === null) {
     return (
       <div className="text-center py-12">
-        <h2 className="text-xl font-medium text-gray-900 mb-2">
+        <h2 className="text-xl font-medium text-[#faf9f7] mb-2">
           {t("orderNotFound")}
         </h2>
-        <p className="text-gray-500 mb-6">{t("orderNotFoundDescription")}</p>
+        <p className="text-[#9ca3af] mb-6">{t("orderNotFoundDescription")}</p>
         <Link
           href={`${basePath}/account/orders`}
           className="text-primary hover:text-primary font-medium"

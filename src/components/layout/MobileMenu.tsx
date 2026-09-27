@@ -87,11 +87,11 @@ export function MobileMenu({
 
   // Shared link style
   const linkClass =
-    "text-left text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg px-3 py-2.5 text-base transition-colors";
+    "text-left text-[#e0d5c4] hover:text-[#faf9f7] hover:bg-[#0f1a24] rounded-lg px-3 py-2.5 text-base transition-colors";
 
   // Shared button style for items with children (chevron)
   const categoryButtonClass =
-    "flex items-center justify-between w-full text-left text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg px-3 py-2.5 text-base transition-colors";
+    "flex items-center justify-between w-full text-left text-[#e0d5c4] hover:text-[#faf9f7] hover:bg-[#0f1a24] rounded-lg px-3 py-2.5 text-base transition-colors";
 
   return (
     <Sheet open={open} onOpenChange={handleOpenChange}>
@@ -153,7 +153,7 @@ export function MobileMenu({
       >
         <SheetTitle className="sr-only">{t("menu")}</SheetTitle>
         {/* Menu header — changes based on active panel */}
-        <div className="hidden md:flex items-center justify-between px-4 h-16 border-b border-gray-200 relative overflow-hidden">
+        <div className="hidden md:flex items-center justify-between px-4 h-16 border-b border-[#c8aa6e]/15 relative overflow-hidden">
           {/* "Menu" title — visible when on main panel */}
           <span
             className={`text-base font-semibold transition-all duration-300 ease-in-out absolute left-4 ${
@@ -168,7 +168,7 @@ export function MobileMenu({
           <button
             type="button"
             onClick={popPanel}
-            className={`flex items-center gap-2 text-gray-700 hover:text-gray-900 text-base font-semibold cursor-pointer transition-all duration-300 ease-in-out absolute left-4 ${
+            className={`flex items-center gap-2 text-[#e0d5c4] hover:text-[#faf9f7] text-base font-semibold cursor-pointer transition-all duration-300 ease-in-out absolute left-4 ${
               currentPanel.kind !== "main"
                 ? "translate-x-0 opacity-100"
                 : "translate-x-8 opacity-0 pointer-events-none"
@@ -195,7 +195,7 @@ export function MobileMenu({
         <div className="relative flex-1 overflow-hidden">
           {/* Main menu panel */}
           <div
-            className={`absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out ${
+            className={`absolute inset-0 flex flex-col bg-[#0f1a24] transition-transform duration-300 ease-in-out ${
               animatedIndex === 0 && currentPanel.kind === "main"
                 ? "translate-x-0"
                 : "-translate-x-full"
@@ -225,7 +225,7 @@ export function MobileMenu({
                     className={categoryButtonClass}
                   >
                     <span>{category.name}</span>
-                    <ChevronRight className="w-4 h-4 text-gray-400" />
+                    <ChevronRight className="w-4 h-4 text-[#9ca3af]" />
                   </button>
                 ) : (
                   <Link
@@ -246,7 +246,7 @@ export function MobileMenu({
                 {t("contact")}
               </Link>
               {/* Secondary links — kept out of the category list above. */}
-              <div className="mt-2 pt-2 border-t border-gray-200">
+              <div className="mt-2 pt-2 border-t border-[#c8aa6e]/15">
                 {wholesaleEnabled && (
                   <Link
                     href={`${basePath}/wholesale`}
@@ -268,7 +268,7 @@ export function MobileMenu({
             </nav>
 
             {/* Footer: centered Region and language control (mobile only) */}
-            <SheetFooter className="lg:hidden items-center border-t border-gray-200 pt-4 gap-2">
+            <SheetFooter className="lg:hidden items-center border-t border-[#c8aa6e]/15 pt-4 gap-2">
               <RegionPreferences variant="menu" />
             </SheetFooter>
           </div>
@@ -285,14 +285,14 @@ export function MobileMenu({
             return (
               <div
                 key={`cat-${panel.category.id}-${index}`}
-                className={`absolute inset-0 flex flex-col bg-white transition-transform duration-300 ease-in-out ${translateClass}`}
+                className={`absolute inset-0 flex flex-col bg-[#0f1a24] transition-transform duration-300 ease-in-out ${translateClass}`}
               >
                 {/* Back button (mobile only — desktop uses the global header) */}
-                <div className="md:hidden px-4 py-2 border-b border-gray-200">
+                <div className="md:hidden px-4 py-2 border-b border-[#c8aa6e]/15">
                   <button
                     type="button"
                     onClick={popPanel}
-                    className="flex items-center gap-2 text-gray-700 hover:text-gray-900 py-2 text-base font-medium"
+                    className="flex items-center gap-2 text-[#e0d5c4] hover:text-[#faf9f7] py-2 text-base font-medium"
                   >
                     <ArrowLeft className="w-5 h-5" />
                     <span>{panel.category.name}</span>
@@ -312,7 +312,7 @@ export function MobileMenu({
                         className={categoryButtonClass}
                       >
                         <span>{child.name}</span>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                        <ChevronRight className="w-4 h-4 text-[#9ca3af]" />
                       </button>
                     ) : (
                       <Link
@@ -328,11 +328,11 @@ export function MobileMenu({
                 </nav>
 
                 {/* "View all" at the bottom */}
-                <div className="border-t border-gray-200 px-4 py-3">
+                <div className="border-t border-[#c8aa6e]/15 px-4 py-3">
                   <Link
                     href={`${basePath}/c/${panel.category.permalink}`}
                     onClick={() => handleOpenChange(false)}
-                    className="block w-full text-center text-sm text-gray-500 hover:text-gray-900 py-2 transition-colors"
+                    className="block w-full text-center text-sm text-[#9ca3af] hover:text-[#faf9f7] py-2 transition-colors"
                   >
                     {t("viewAllCategory", { category: panel.category.name })}
                   </Link>

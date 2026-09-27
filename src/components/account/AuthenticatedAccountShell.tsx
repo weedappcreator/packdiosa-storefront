@@ -15,13 +15,13 @@ function SessionFallback() {
         <span className="sr-only">{t("loading")}</span>
         <div
           aria-hidden="true"
-          className="h-8 w-1/2 mx-auto rounded bg-gray-200"
+          className="h-8 w-1/2 mx-auto rounded bg-[#1a2b3c]"
         />
         <div
           aria-hidden="true"
-          className="h-4 w-3/4 mx-auto rounded bg-gray-200"
+          className="h-4 w-3/4 mx-auto rounded bg-[#1a2b3c]"
         />
-        <div aria-hidden="true" className="h-32 rounded bg-gray-200" />
+        <div aria-hidden="true" className="h-32 rounded bg-[#1a2b3c]" />
       </div>
     </div>
   );

@@ -94,10 +94,10 @@ export function CartDrawer() {
       >
         <SheetHeader className="flex flex-row gap-2 items-center justify-between border-b">
           <SheetTitle className="flex flex-row gap-2 items-center">
-            <ShoppingBag className="w-6 h-6 text-gray-600" />
+            <ShoppingBag className="w-6 h-6 text-[#9ca3af]" />
             <span>{t("cart")}</span>
             {itemCount > 0 && (
-              <span className="text-gray-600">
+              <span className="text-[#9ca3af]">
                 {t("itemCount", { count: itemCount })}
               </span>
             )}
@@ -116,10 +116,10 @@ export function CartDrawer() {
             <div className="p-4 space-y-4">
               {[1, 2].map((i) => (
                 <div key={i} className="flex gap-4 animate-pulse">
-                  <div className="w-24 h-24 bg-gray-200 rounded" />
+                  <div className="w-24 h-24 bg-[#1a2b3c] rounded" />
                   <div className="flex-1 space-y-2">
-                    <div className="h-4 bg-gray-200 rounded w-3/4" />
-                    <div className="h-4 bg-gray-200 rounded w-1/2" />
+                    <div className="h-4 bg-[#1a2b3c] rounded w-3/4" />
+                    <div className="h-4 bg-[#1a2b3c] rounded w-1/2" />
                   </div>
                 </div>
               ))}
@@ -130,7 +130,7 @@ export function CartDrawer() {
                 className="w-16 h-16 text-gray-300 mb-4"
                 strokeWidth={1}
               />
-              <p className="text-gray-500 mb-4">{t("emptyCart")}</p>
+              <p className="text-[#9ca3af] mb-4">{t("emptyCart")}</p>
               <Link
                 href={`${basePath}/products`}
                 className="text-primary hover:text-primary font-medium"
@@ -147,7 +147,7 @@ export function CartDrawer() {
                     {/* Image */}
                     <Link
                       href={`${basePath}/products/${item.slug}`}
-                      className="relative w-24 h-24 bg-gray-100 rounded overflow-hidden flex-shrink-0"
+                      className="relative w-24 h-24 bg-[#1a2b3c] rounded overflow-hidden flex-shrink-0"
                       onClick={closeCart}
                     >
                       <ProductImage
@@ -164,7 +164,7 @@ export function CartDrawer() {
                       <div className="flex justify-between items-start">
                         <Link
                           href={`${basePath}/products/${item.slug}`}
-                          className="font-medium text-gray-900 hover:text-primary line-clamp-2"
+                          className="font-medium text-[#faf9f7] hover:text-primary line-clamp-2"
                           onClick={closeCart}
                         >
                           {item.name}
@@ -187,7 +187,7 @@ export function CartDrawer() {
 
                       {/* Options */}
                       {item.options_text && (
-                        <p className="mt-1 text-sm text-gray-500">
+                        <p className="mt-1 text-sm text-[#9ca3af]">
                           {item.options_text}
                         </p>
                       )}
@@ -208,7 +208,7 @@ export function CartDrawer() {
                           parseFloat(item.compare_at_amount) >
                             parseFloat(item.price) ? (
                             <>
-                              <span className="text-gray-400 line-through mr-2">
+                              <span className="text-[#9ca3af] line-through mr-2">
                                 {item.display_compare_at_amount}
                               </span>
                               <span className="text-red-600">
@@ -216,7 +216,7 @@ export function CartDrawer() {
                               </span>
                             </>
                           ) : (
-                            <span className="text-gray-900">
+                            <span className="text-[#faf9f7]">
                               {item.display_price}
                             </span>
                           )}
@@ -232,7 +232,7 @@ export function CartDrawer() {
 
         {/* Footer */}
         {!isEmpty && !loading && (
-          <SheetFooter className="border-t border-gray-200 p-4 space-y-4">
+          <SheetFooter className="border-t border-[#c8aa6e]/15 p-4 space-y-4">
             {!expressProcessing && (
               <>
                 {/* Summary */}
@@ -250,7 +250,7 @@ export function CartDrawer() {
                     )}
                   <div className="flex justify-between items-center">
                     <span>{tc("shipping")}</span>
-                    <span className="text-gray-500">
+                    <span className="text-[#9ca3af]">
                       {t("shippingCalculatedAtCheckout")}
                     </span>
                   </div>
@@ -293,7 +293,7 @@ export function CartDrawer() {
 
         {/* Loading overlay */}
         {updating && (
-          <div className="absolute inset-0 bg-white/50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-[#0f1a24]/50 flex items-center justify-center">
             <div className="w-8 h-8 border-4 border-gray-600 border-t-transparent rounded-full animate-spin" />
           </div>
         )}

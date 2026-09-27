@@ -69,8 +69,8 @@ export default function ForgotPasswordPage() {
           </CardHeader>
 
           <CardContent className="space-y-4">
-            <div className="flex items-start gap-3 text-sm text-gray-600">
-              <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 text-gray-400" />
+            <div className="flex items-start gap-3 text-sm text-[#9ca3af]">
+              <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#9ca3af]" />
               <p>{t("linkExpiry")}</p>
             </div>
 

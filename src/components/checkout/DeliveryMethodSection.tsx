@@ -24,7 +24,7 @@ export function DeliveryMethodSection({
 
   return (
     <div>
-      <h2 className="text-lg font-bold text-gray-900 mb-3">
+      <h2 className="text-lg font-bold text-[#faf9f7] mb-3">
         {t("shippingMethod")}
       </h2>
 
@@ -39,7 +39,7 @@ export function DeliveryMethodSection({
       )}
 
       {fulfillments.length === 0 ? (
-        <div className="rounded-sm bg-gray-100 px-4 py-3.5 text-sm text-gray-500">
+        <div className="rounded-sm bg-[#1a2b3c] px-4 py-3.5 text-sm text-[#9ca3af]">
           {t("enterShippingAddressForMethods")}
         </div>
       ) : (
@@ -51,7 +51,7 @@ export function DeliveryMethodSection({
             return (
               <div key={fulfillment.id}>
                 {fulfillments.length > 1 && (
-                  <p className="text-xs font-medium text-gray-500 mb-2">
+                  <p className="text-xs font-medium text-[#9ca3af] mb-2">
                     {t("shipmentOf", {
                       current: index + 1,
                       total: fulfillments.length,
@@ -81,16 +81,16 @@ export function DeliveryMethodSection({
                       className={`flex items-center justify-between px-4 py-3.5 cursor-pointer transition-colors ${
                         rate.selected
                           ? "bg-blue-50"
-                          : "bg-white hover:bg-gray-50"
+                          : "bg-[#0f1a24] hover:bg-[#0f1a24]"
                       } ${rateIndex > 0 ? "border-t" : ""}`}
                     >
                       <div className="flex items-center gap-3">
                         <RadioGroupItem value={rate.id} />
-                        <span className="text-sm text-gray-900">
+                        <span className="text-sm text-[#faf9f7]">
                           {rate.name}
                         </span>
                       </div>
-                      <span className="text-sm text-gray-900">
+                      <span className="text-sm text-[#faf9f7]">
                         {rate.display_cost}
                       </span>
                     </label>

@@ -46,7 +46,7 @@ export function QuantityPicker({
       : "w-10 bg-transparent py-2 text-center text-sm font-medium tabular-nums outline-none disabled:opacity-50";
 
   return (
-    <div className="flex items-center border border-gray-300 rounded-lg px-0.5 focus-within:border-gray-500">
+    <div className="flex items-center border border-[#c8aa6e]/20 rounded-lg px-0.5 focus-within:border-gray-500">
       <Button
         type="button"
         variant="ghost"

@@ -136,11 +136,11 @@ export function VariantPicker({
         return (
           <div key={optionType.id}>
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-sm font-medium text-gray-900">
+              <span className="text-sm font-medium text-[#faf9f7]">
                 {optionType.label}
               </span>
               {selectedValue && (
-                <span className="text-sm text-gray-500">
+                <span className="text-sm text-[#9ca3af]">
                   {getOptionValueDetails(optionType.id, selectedValue)?.label ||
                     selectedValue}
                 </span>
@@ -170,7 +170,7 @@ export function VariantPicker({
                       title={optionValue?.label || value}
                       className={`
                         w-10 h-10 rounded-lg border transition-all relative overflow-hidden
-                        ${isSelected ? "border-gray-900 ring-2 ring-primary ring-offset-2" : "border-gray-200"}
+                        ${isSelected ? "border-gray-900 ring-2 ring-primary ring-offset-2" : "border-[#c8aa6e]/15"}
                         ${!isAvailable ? "opacity-30 cursor-not-allowed" : "cursor-pointer"}
                         ${!isPurchasable && isAvailable ? "opacity-50" : ""}
                       `}
@@ -223,7 +223,7 @@ export function VariantPicker({
                     >
                       {optionValue?.label || value}
                       {!isPurchasable && isAvailable && (
-                        <span className="ml-1 text-xs text-gray-400">
+                        <span className="ml-1 text-xs text-[#9ca3af]">
                           {t("outOfStockVariant")}
                         </span>
                       )}

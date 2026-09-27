@@ -17,10 +17,10 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body className="flex min-h-screen items-center justify-center bg-white text-center">
+      <body className="flex min-h-screen items-center justify-center bg-[#0f1a24] text-center">
         <div>
           <h1 className="mb-4 text-2xl font-bold">Something went wrong</h1>
-          <p className="mb-6 text-gray-600">
+          <p className="mb-6 text-[#9ca3af]">
             An unexpected error occurred. Please try again.
           </p>
           <Button onClick={reset}>Try again</Button>

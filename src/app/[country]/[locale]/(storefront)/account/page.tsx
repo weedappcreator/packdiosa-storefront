@@ -72,9 +72,9 @@ export default function AccountPage() {
     return (
       <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-gray-200 rounded w-1/2 mx-auto" />
-          <div className="h-4 bg-gray-200 rounded w-3/4 mx-auto" />
-          <div className="h-48 bg-gray-200 rounded" />
+          <div className="h-8 bg-[#1a2b3c] rounded w-1/2 mx-auto" />
+          <div className="h-4 bg-[#1a2b3c] rounded w-3/4 mx-auto" />
+          <div className="h-48 bg-[#1a2b3c] rounded" />
         </div>
       </div>
     );
@@ -189,22 +189,22 @@ export default function AccountPage() {
   return (
     <AccountShell>
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">
+        <h1 className="text-2xl font-bold text-[#faf9f7] mb-6">
           {t("accountOverview")}
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Link href={`${basePath}/account/orders`}>
-            <Card className="hover:border-gray-300 transition-colors h-full">
+            <Card className="hover:border-[#c8aa6e]/20 transition-colors h-full">
               <CardContent className="flex items-center gap-4 py-0">
-                <div className="p-3 bg-gray-100 rounded-xl">
+                <div className="p-3 bg-[#1a2b3c] rounded-xl">
                   <ShoppingBag className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-medium text-gray-900">
+                  <h2 className="text-lg font-medium text-[#faf9f7]">
                     {t("orderHistory")}
                   </h2>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm text-[#9ca3af]">
                     {t("orderHistoryDescription")}
                   </p>
                 </div>
@@ -213,16 +213,16 @@ export default function AccountPage() {
           </Link>
 
           <Link href={`${basePath}/account/addresses`}>
-            <Card className="hover:border-gray-300 transition-colors h-full">
+            <Card className="hover:border-[#c8aa6e]/20 transition-colors h-full">
               <CardContent className="flex items-center gap-4 py-0">
-                <div className="p-3 bg-gray-100 rounded-xl">
+                <div className="p-3 bg-[#1a2b3c] rounded-xl">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-medium text-gray-900">
+                  <h2 className="text-lg font-medium text-[#faf9f7]">
                     {t("addresses")}
                   </h2>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm text-[#9ca3af]">
                     {t("addressesDescription")}
                   </p>
                 </div>
@@ -231,16 +231,16 @@ export default function AccountPage() {
           </Link>
 
           <Link href={`${basePath}/account/credit-cards`}>
-            <Card className="hover:border-gray-300 transition-colors h-full">
+            <Card className="hover:border-[#c8aa6e]/20 transition-colors h-full">
               <CardContent className="flex items-center gap-4 py-0">
-                <div className="p-3 bg-gray-100 rounded-xl">
+                <div className="p-3 bg-[#1a2b3c] rounded-xl">
                   <CreditCard className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-medium text-gray-900">
+                  <h2 className="text-lg font-medium text-[#faf9f7]">
                     {t("paymentMethods")}
                   </h2>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm text-[#9ca3af]">
                     {t("paymentMethodsDescription")}
                   </p>
                 </div>
@@ -249,16 +249,16 @@ export default function AccountPage() {
           </Link>
 
           <Link href={`${basePath}/account/profile`}>
-            <Card className="hover:border-gray-300 transition-colors h-full">
+            <Card className="hover:border-[#c8aa6e]/20 transition-colors h-full">
               <CardContent className="flex items-center gap-4 py-0">
-                <div className="p-3 bg-gray-100 rounded-xl">
+                <div className="p-3 bg-[#1a2b3c] rounded-xl">
                   <User className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-medium text-gray-900">
+                  <h2 className="text-lg font-medium text-[#faf9f7]">
                     {t("profile")}
                   </h2>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm text-[#9ca3af]">
                     {t("profileDescription")}
                   </p>
                 </div>

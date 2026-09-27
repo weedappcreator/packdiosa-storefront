@@ -663,15 +663,15 @@ export function PaymentSection({
   if (isZeroAmount) {
     return (
       <div>
-        <h2 className="text-lg font-bold text-gray-900">
+        <h2 className="text-lg font-bold text-[#faf9f7]">
           {t("paymentMethod")}
         </h2>
-        <div className="mt-2 rounded-sm border bg-gray-50 px-4 py-6 text-center">
+        <div className="mt-2 rounded-sm border bg-[#0f1a24] px-4 py-6 text-center">
           <Info
             className="w-8 h-8 text-gray-300 mx-auto mb-2"
             strokeWidth={1.5}
           />
-          <p className="text-sm text-gray-600">{t("noPaymentRequired")}</p>
+          <p className="text-sm text-[#9ca3af]">{t("noPaymentRequired")}</p>
         </div>
 
         {/* Billing address */}
@@ -683,7 +683,9 @@ export function PaymentSection({
                 handleUseShippingChange(checked === true)
               }
             />
-            <span className="text-sm text-gray-900">{t("sameAsShipping")}</span>
+            <span className="text-sm text-[#faf9f7]">
+              {t("sameAsShipping")}
+            </span>
           </label>
           {!useShippingForBilling && (
             <div className="mt-4">
@@ -706,15 +708,15 @@ export function PaymentSection({
   if (paymentMethods.length === 0) {
     return (
       <div>
-        <h2 className="text-lg font-bold text-gray-900">
+        <h2 className="text-lg font-bold text-[#faf9f7]">
           {t("paymentMethod")}
         </h2>
-        <div className="mt-2 rounded-sm border bg-gray-50 px-4 py-8 text-center">
+        <div className="mt-2 rounded-sm border bg-[#0f1a24] px-4 py-8 text-center">
           <CreditCard
             className="w-10 h-10 text-gray-300 mx-auto mb-3"
             strokeWidth={1.5}
           />
-          <p className="text-sm text-gray-500">{t("noPaymentMethods")}</p>
+          <p className="text-sm text-[#9ca3af]">{t("noPaymentMethods")}</p>
         </div>
       </div>
     );
@@ -724,8 +726,8 @@ export function PaymentSection({
   return (
     <div>
       {/* Section Header */}
-      <h2 className="text-lg font-bold text-gray-900">{t("paymentMethod")}</h2>
-      <p className="text-sm text-gray-500 mt-0.5">{t("secureTransactions")}</p>
+      <h2 className="text-lg font-bold text-[#faf9f7]">{t("paymentMethod")}</h2>
+      <p className="text-sm text-[#9ca3af] mt-0.5">{t("secureTransactions")}</p>
 
       {/* Inline requirement errors from parent */}
       {errors && errors.length > 0 && (
@@ -756,11 +758,13 @@ export function PaymentSection({
               {hasMultipleMethods && (
                 <label
                   className={`flex items-center gap-3 px-4 py-3.5 cursor-pointer transition-colors ${
-                    isSelected ? "bg-blue-50" : "bg-white hover:bg-gray-50"
+                    isSelected
+                      ? "bg-blue-50"
+                      : "bg-[#0f1a24] hover:bg-[#0f1a24]"
                   } ${index > 0 ? "border-t" : ""}`}
                 >
                   <RadioGroupItem value={pm.id} />
-                  <span className="text-sm font-medium text-gray-900">
+                  <span className="text-sm font-medium text-[#faf9f7]">
                     {pm.name}
                   </span>
                 </label>
@@ -771,7 +775,7 @@ export function PaymentSection({
                 <div className="flex items-center justify-between px-4 py-3.5 bg-blue-50">
                   <div className="flex items-center gap-3">
                     <RadioGroupItem value={pm.id} />
-                    <span className="text-sm font-medium text-gray-900">
+                    <span className="text-sm font-medium text-[#faf9f7]">
                       {pm.name}
                     </span>
                   </div>
@@ -780,14 +784,14 @@ export function PaymentSection({
 
               {/* Sub-form for the selected method */}
               {isSelected && (
-                <div className="border-t bg-gray-50">
+                <div className="border-t bg-[#0f1a24]">
                   {pm.session_required ? (
                     <>
                       {/* Stripe: saved cards selector */}
                       {pmGatewayId === "stripe" && (
                         <>
                           {/* Demo-only test card note */}
-                          <p className="text-xs text-gray-400 px-4 pt-3">
+                          <p className="text-xs text-[#9ca3af] px-4 pt-3">
                             {t("testCardNote", {
                               testCard: "4242 4242 4242 4242",
                             })}
@@ -810,8 +814,8 @@ export function PaymentSection({
                                     className={`flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors ${
                                       selectedCardId ===
                                       card.gateway_payment_profile_id
-                                        ? "bg-white"
-                                        : "bg-white hover:bg-gray-50"
+                                        ? "bg-[#0f1a24]"
+                                        : "bg-[#0f1a24] hover:bg-[#0f1a24]"
                                     } ${cardIndex > 0 ? "border-t" : ""}`}
                                   >
                                     <RadioGroupItem
@@ -825,13 +829,13 @@ export function PaymentSection({
                                       format="flatRounded"
                                       width={34}
                                     />
-                                    <span className="text-sm text-gray-900 flex-1">
+                                    <span className="text-sm text-[#faf9f7] flex-1">
                                       {t("savedCardLabel", {
                                         brand: getCardLabel(card.brand),
                                         digits: card.last4,
                                       })}
                                     </span>
-                                    <span className="text-xs text-gray-500">
+                                    <span className="text-xs text-[#9ca3af]">
                                       {t("cardExpiry", {
                                         month: String(card.month).padStart(
                                           2,
@@ -841,7 +845,7 @@ export function PaymentSection({
                                       })}
                                     </span>
                                     {card.default && (
-                                      <span className="text-[11px] font-medium text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">
+                                      <span className="text-[11px] font-medium text-[#9ca3af] bg-[#1a2b3c] px-1.5 py-0.5 rounded">
                                         {t("default")}
                                       </span>
                                     )}
@@ -852,16 +856,16 @@ export function PaymentSection({
                                 <label
                                   className={`flex items-center gap-3 px-4 py-3 cursor-pointer border-t transition-colors ${
                                     isAddingNew
-                                      ? "bg-white"
-                                      : "bg-white hover:bg-gray-50"
+                                      ? "bg-[#0f1a24]"
+                                      : "bg-[#0f1a24] hover:bg-[#0f1a24]"
                                   }`}
                                 >
                                   <RadioGroupItem value="__new__" />
                                   <CreditCard
-                                    className="w-5 h-5 text-gray-400"
+                                    className="w-5 h-5 text-[#9ca3af]"
                                     strokeWidth={1.5}
                                   />
-                                  <span className="text-sm text-gray-900">
+                                  <span className="text-sm text-[#faf9f7]">
                                     {t("addNewPaymentMethod")}
                                   </span>
                                 </label>
@@ -874,8 +878,8 @@ export function PaymentSection({
                       {/* Shared: loading spinner */}
                       {loading && (
                         <div className="flex items-center justify-center py-10">
-                          <Loader2 className="animate-spin h-5 w-5 text-gray-400" />
-                          <span className="ml-2 text-sm text-gray-500">
+                          <Loader2 className="animate-spin h-5 w-5 text-[#9ca3af]" />
+                          <span className="ml-2 text-sm text-[#9ca3af]">
                             {t("loadingPaymentForm")}
                           </span>
                         </div>
@@ -956,7 +960,7 @@ export function PaymentSection({
                                     className="w-8 h-8 text-gray-300 mx-auto mb-2"
                                     strokeWidth={1.5}
                                   />
-                                  <p className="text-sm text-gray-500">
+                                  <p className="text-sm text-[#9ca3af]">
                                     {t("unsupportedGateway")}
                                   </p>
                                 </div>
@@ -968,11 +972,11 @@ export function PaymentSection({
                     /* ── Direct/manual payment ── */
                     <div className="px-4 py-4">
                       {pm.description && (
-                        <p className="text-sm text-gray-600 mb-2">
+                        <p className="text-sm text-[#9ca3af] mb-2">
                           {pm.description}
                         </p>
                       )}
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-[#9ca3af]">
                         {t("manualPaymentInfo")}
                       </p>
                     </div>
@@ -993,7 +997,7 @@ export function PaymentSection({
               handleUseShippingChange(checked === true)
             }
           />
-          <span className="text-sm text-gray-900">{t("sameAsShipping")}</span>
+          <span className="text-sm text-[#faf9f7]">{t("sameAsShipping")}</span>
         </label>
 
         {!useShippingForBilling && (

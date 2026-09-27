@@ -46,16 +46,16 @@ export function ProductCustomFields({
 
   return (
     <div className="mt-8 border-t pt-8">
-      <h2 className="text-lg font-medium text-gray-900 mb-4">
+      <h2 className="text-lg font-medium text-[#faf9f7] mb-4">
         {t("properties")}
       </h2>
       <dl className="space-y-3">
         {customFields.map((field) => (
           <div key={field.id} className="flex">
-            <dt className="w-32 shrink-0 text-gray-500 text-sm">
+            <dt className="w-32 shrink-0 text-[#9ca3af] text-sm">
               {field.label}
             </dt>
-            <dd className="text-gray-900 text-sm min-w-0">
+            <dd className="text-[#faf9f7] text-sm min-w-0">
               {renderValue(field, t)}
             </dd>
           </div>

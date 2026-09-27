@@ -101,7 +101,7 @@ export function WholesaleHeader({
                 <Link href={`${wholesaleBase}/cart`} aria-label={t("nav.cart")}>
                   <ShoppingCart className="h-5 w-5" />
                   {itemCount > 0 && (
-                    <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-white px-1 text-xs font-semibold text-slate-900">
+                    <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#0f1a24] px-1 text-xs font-semibold text-slate-900">
                       {itemCount}
                     </span>
                   )}
@@ -123,7 +123,7 @@ export function WholesaleHeader({
               asChild
               variant="secondary"
               size="sm"
-              className="bg-white text-slate-900 hover:bg-slate-100"
+              className="bg-[#0f1a24] text-slate-900 hover:bg-slate-100"
             >
               <Link href={signInHref ?? wholesaleSignInHref(basePath)}>
                 {t("nav.signIn")}

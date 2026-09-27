@@ -99,7 +99,7 @@ export function MobileFilterDrawer({
       >
         <SheetTitle className="sr-only">{t("filters")}</SheetTitle>
 
-        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+        <div className="flex items-center justify-between p-4 border-b border-[#c8aa6e]/15">
           <Button
             variant="ghost"
             size="icon"
@@ -148,7 +148,7 @@ export function MobileFilterDrawer({
           })}
         </div>
 
-        <div className="border-t border-gray-200 p-4 space-y-2">
+        <div className="border-t border-[#c8aa6e]/15 p-4 space-y-2">
           {stagedCount > 0 && (
             <Button variant="ghost" className="w-full" onClick={handleClearAll}>
               {t("clearAllFiltersCount", { count: stagedCount })}
@@ -176,7 +176,7 @@ function MobileOptionSection({
 
   return (
     <div>
-      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+      <h3 className="text-xs font-semibold text-[#9ca3af] uppercase tracking-wider mb-3">
         {filter.label}
       </h3>
       {isColorFilter ? (
@@ -190,14 +190,14 @@ function MobileOptionSection({
                 aria-pressed={isSelected}
                 onClick={() => onToggle(option.id)}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors ${
-                  isSelected ? "bg-gray-50" : "hover:bg-gray-50"
+                  isSelected ? "bg-[#0f1a24]" : "hover:bg-[#0f1a24]"
                 }`}
               >
                 <span
                   className={`w-7 h-7 rounded-lg shrink-0 border-2 transition-colors overflow-hidden ${
                     isSelected
                       ? "border-gray-500 ring-2 ring-primary-200"
-                      : "border-gray-200"
+                      : "border-[#c8aa6e]/15"
                   }`}
                   style={
                     option.image_url
@@ -211,11 +211,11 @@ function MobileOptionSection({
                   }
                 />
                 <span
-                  className={`text-sm flex-1 text-left ${isSelected ? "font-medium text-gray-900" : "text-gray-700"}`}
+                  className={`text-sm flex-1 text-left ${isSelected ? "font-medium text-[#faf9f7]" : "text-[#e0d5c4]"}`}
                 >
                   {option.label}
                 </span>
-                <span className="text-xs text-gray-400">({option.count})</span>
+                <span className="text-xs text-[#9ca3af]">({option.count})</span>
                 {isSelected && (
                   <Check className="w-4 h-4 text-primary shrink-0" />
                 )}
@@ -236,7 +236,7 @@ function MobileOptionSection({
                 className={`px-3.5 py-2 text-sm rounded-xl border transition-colors ${
                   isSelected
                     ? "border-gray-500 bg-primary text-white"
-                    : "border-gray-300 text-gray-700 hover:border-gray-400"
+                    : "border-[#c8aa6e]/20 text-[#e0d5c4] hover:border-gray-400"
                 }`}
               >
                 {option.label}
@@ -270,7 +270,7 @@ function MobilePriceSection({
 
   return (
     <div>
-      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+      <h3 className="text-xs font-semibold text-[#9ca3af] uppercase tracking-wider mb-3">
         {t("price")}
       </h3>
       <div className="space-y-1">
@@ -290,8 +290,8 @@ function MobilePriceSection({
               }}
               className={`w-full flex items-center gap-3 px-3 py-2.5 text-sm rounded-xl transition-colors ${
                 isSelected
-                  ? "bg-gray-50 font-medium text-gray-900"
-                  : "text-gray-700 hover:bg-gray-50"
+                  ? "bg-[#0f1a24] font-medium text-[#faf9f7]"
+                  : "text-[#e0d5c4] hover:bg-[#0f1a24]"
               }`}
             >
               <span className="flex-1 text-left">{bucket.label}</span>
@@ -319,7 +319,7 @@ function MobileAvailabilitySection({
 
   return (
     <div>
-      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+      <h3 className="text-xs font-semibold text-[#9ca3af] uppercase tracking-wider mb-3">
         {t("availability")}
       </h3>
       <div className="space-y-1">
@@ -339,14 +339,14 @@ function MobileAvailabilitySection({
               }}
               className={`w-full flex items-center gap-3 px-3 py-2.5 text-sm rounded-xl transition-colors ${
                 isSelected
-                  ? "bg-gray-50 font-medium text-gray-900"
-                  : "text-gray-700 hover:bg-gray-50"
+                  ? "bg-[#0f1a24] font-medium text-[#faf9f7]"
+                  : "text-[#e0d5c4] hover:bg-[#0f1a24]"
               }`}
             >
               <span className="flex-1 text-left">
                 {getAvailabilityLabel(option.id, t)}
               </span>
-              <span className="text-xs text-gray-400">({option.count})</span>
+              <span className="text-xs text-[#9ca3af]">({option.count})</span>
               {isSelected && (
                 <Check className="w-4 h-4 text-primary shrink-0" />
               )}

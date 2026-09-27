@@ -36,7 +36,7 @@ function CheckoutHeader() {
       </Link>
       <Link
         href={basePath || "/"}
-        className="text-sm text-gray-600 hover:text-gray-900 flex items-center gap-1"
+        className="text-sm text-[#9ca3af] hover:text-[#faf9f7] flex items-center gap-1"
         aria-label={t("backToStore")}
       >
         <ArrowLeft className="w-4 h-4" aria-hidden="true" />
@@ -53,7 +53,7 @@ function CheckoutFooter() {
   const tp = useTranslations("policies");
 
   return (
-    <footer className="py-4 text-xs text-gray-500 border-t border-gray-200 mt-auto flex flex-wrap items-center gap-x-3 gap-y-1">
+    <footer className="py-4 text-xs text-[#9ca3af] border-t border-[#c8aa6e]/15 mt-auto flex flex-wrap items-center gap-x-3 gap-y-1">
       <p>
         {t("allRightsReserved", { year: new Date().getFullYear(), storeName })}
       </p>
@@ -62,7 +62,7 @@ function CheckoutFooter() {
           key={policy.slug}
           href={`${basePath}/policies/${policy.slug}`}
           target="_blank"
-          className="text-gray-500 underline hover:text-gray-700"
+          className="text-[#9ca3af] underline hover:text-[#e0d5c4]"
         >
           {tp(policy.nameKey)}
         </Link>
@@ -82,7 +82,7 @@ function MobileSummaryToggle() {
   if (summaryContent === null) return null;
 
   return (
-    <div className="lg:hidden border-b border-gray-200 bg-gray-50">
+    <div className="lg:hidden border-b border-[#c8aa6e]/15 bg-[#0f1a24]">
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
@@ -90,12 +90,12 @@ function MobileSummaryToggle() {
         aria-expanded={isOpen}
         aria-controls="checkout-summary-panel"
       >
-        <span className="flex items-center gap-2 text-sm font-medium text-gray-900">
-          <ShoppingBag className="w-5 h-5 text-gray-600" />
+        <span className="flex items-center gap-2 text-sm font-medium text-[#faf9f7]">
+          <ShoppingBag className="w-5 h-5 text-[#9ca3af]" />
           {isOpen ? t("hideOrderSummary") : t("showOrderSummary")}
         </span>
         <ChevronDown
-          className={`w-5 h-5 text-gray-500 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`w-5 h-5 text-[#9ca3af] transition-transform ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
       {isOpen && (
@@ -113,9 +113,9 @@ interface CheckoutLayoutProps {
 
 function CheckoutLayoutContent({ children }: CheckoutLayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-[#0f1a24]">
       {/* Mobile header */}
-      <div className="lg:hidden border-b border-gray-200">
+      <div className="lg:hidden border-b border-[#c8aa6e]/15">
         <div className="px-5">
           <CheckoutHeader />
         </div>
@@ -141,7 +141,7 @@ function CheckoutLayoutContent({ children }: CheckoutLayoutProps) {
         </div>
 
         {/* Desktop summary sidebar — Shopify: light gray bg with left border */}
-        <div className="hidden lg:block lg:col-start-3 border-l border-gray-200 bg-gray-50">
+        <div className="hidden lg:block lg:col-start-3 border-l border-[#c8aa6e]/15 bg-[#0f1a24]">
           <div className="sticky top-0 px-10 py-10">
             <CheckoutSummary />
           </div>

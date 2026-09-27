@@ -109,7 +109,7 @@ function MediaGalleryInner({
 
   if (images.length === 0) {
     return (
-      <div className="relative aspect-square bg-gray-100 rounded-xl overflow-hidden">
+      <div className="relative aspect-square bg-[#1a2b3c] rounded-xl overflow-hidden">
         <ProductImage
           src={null}
           alt={productName}
@@ -134,7 +134,7 @@ function MediaGalleryInner({
       {/* Main Image */}
       <button
         type="button"
-        className="relative aspect-square bg-gray-100 rounded-xl overflow-hidden cursor-zoom-in w-full touch-pan-y"
+        className="relative aspect-square bg-[#1a2b3c] rounded-xl overflow-hidden cursor-zoom-in w-full touch-pan-y"
         onClick={() => {
           if (suppressClickRef.current) {
             suppressClickRef.current = false;
@@ -165,7 +165,7 @@ function MediaGalleryInner({
         />
         {/* Zoom hint */}
         {showMainImage && (
-          <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm text-gray-600 flex items-center gap-1.5">
+          <div className="absolute bottom-4 right-4 bg-[#0f1a24]/80 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm text-[#9ca3af] flex items-center gap-1.5">
             <ZoomIn className="w-4 h-4" />
             {t("clickToZoom")}
           </div>
@@ -182,10 +182,10 @@ function MediaGalleryInner({
                 type="button"
                 key={image.id}
                 onClick={() => selectImage(index)}
-                className={`relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden border-2 transition-colors bg-gray-100 ${
+                className={`relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden border-2 transition-colors bg-[#1a2b3c] ${
                   index === safeIndex
                     ? "border-gray-600"
-                    : "border-transparent hover:border-gray-300"
+                    : "border-transparent hover:border-[#c8aa6e]/20"
                 }`}
               >
                 <ProductImage
