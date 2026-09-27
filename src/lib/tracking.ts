@@ -177,15 +177,25 @@ async function fetchSheet(gid: string): Promise<string[][] | null> {
   try {
     const res = await fetch(sheetCsvUrl(gid), {
       redirect: "follow",
-      next: { revalidate: 30 }, // cache for 30s
+      next: { revalidate: 15 }, // refresh every 15s for near-real-time updates
     });
     if (!res.ok) return null;
     const csv = await res.text();
     // Guard against HTML responses (e.g. Google error pages)
     if (csv.trimStart().startsWith("<!")) return null;
     const rows = parseCsv(csv);
-    // Skip header row
-    return rows.slice(1);
+    // Auto-detect the header row — the XLSX template has title/subtitle/spacer
+    // rows before the actual column headers. Find the row that starts with
+    // "ORDER" or "order_number" and skip everything up to and including it.
+    const headerIdx = rows.findIndex((r) => {
+      const first = (r[0] || "").toUpperCase().trim();
+      return (
+        first === "ORDER #" ||
+        first === "ORDER_NUMBER" ||
+        first === "ORDER NUMBER"
+      );
+    });
+    return headerIdx >= 0 ? rows.slice(headerIdx + 1) : rows.slice(1);
   } catch {
     return null;
   }
