@@ -13,8 +13,6 @@ import {
  * Tries Google Sheets first, then falls back to Spree order data.
  * No authentication required — customers look up by order number.
  */
-export const dynamic = "force-dynamic"; // never cache this route
-
 export async function GET(request: NextRequest) {
   const query = request.nextUrl.searchParams.get("q")?.trim();
 
