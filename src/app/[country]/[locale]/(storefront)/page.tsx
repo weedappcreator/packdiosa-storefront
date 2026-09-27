@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { FeaturedProductsSection } from "@/components/home/FeaturedProductsSection";
 import { HeroSection } from "@/components/home/HeroSection";
+import { PricingLadder } from "@/components/home/PricingLadder";
+import { TrustSignals } from "@/components/home/TrustSignals";
 import { WholesaleSection } from "@/components/home/WholesaleSection";
 import { resolveCurrency } from "@/lib/data/markets";
 import { generateHomeMetadata } from "@/lib/metadata/home";
@@ -27,12 +29,14 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <div>
       <HeroSection basePath={basePath} locale={locale} />
+      <TrustSignals />
       <FeaturedProductsSection
         basePath={basePath}
         locale={locale}
         country={country}
         currency={currency}
       />
+      <PricingLadder basePath={basePath} />
       <WholesaleSection basePath={basePath} locale={locale} />
     </div>
   );
