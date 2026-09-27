@@ -1,19 +1,12 @@
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
-import { getStoreName } from "@/lib/store";
 
 interface HeroSectionProps {
   basePath: string;
   locale: string;
 }
 
-export async function HeroSection({ basePath, locale }: HeroSectionProps) {
-  const t = await getTranslations({
-    locale: locale as Locale,
-    namespace: "home",
-  });
-
+export async function HeroSection({ basePath }: HeroSectionProps) {
   return (
     <section className="relative min-h-[90vh] md:min-h-[80vh] flex items-center overflow-hidden bg-[#0f1a24]">
       {/* Subtle gold gradient overlay */}
