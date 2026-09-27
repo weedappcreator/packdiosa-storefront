@@ -39,7 +39,7 @@ Spree Commerce (Orders + Vendors) → Fleetbase (Logistics/Dispatch/Tracking) �
 |---------|-----|-----|
 | Spree Storefront | https://packdiosa-storefront.vercel.app | — |
 | Spree API | https://packdiosa.spree.sh | pk_kh81LHAUudVhGFAB5v2afYug |
-| Shippo | via API | REMOVED_SEE_LOCAL_KEYS |
+| Shippo | via API | REMOVED — see ~/Documents/PackDIOSA-Keys/api-keys.txt |
 | Fleetbase | http://localhost:4200 (dashboard), :8000 (API) | TBD after deploy |
 | GitHub | github.com/weedappcreator/packdiosa-storefront | — |
 
@@ -58,7 +58,7 @@ API: http://localhost:8000
 
 1. Fleetbase Dashboard → Fleet-Ops → Settings → Integrations
 2. Add Shippo as carrier provider
-3. Paste API key: REMOVED_SEE_LOCAL_KEYS
+3. Paste API key: REMOVED — see ~/Documents/PackDIOSA-Keys/api-keys.txt
 4. Enable carriers: USPS, UPS, FedEx (cheapest auto-selected by Shippo)
 
 ## 3. Spree → Fleetbase Webhooks
